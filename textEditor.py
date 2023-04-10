@@ -1,15 +1,11 @@
-
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
-
 app_window = tk.Tk()
 app_window.title("My Application")
 app_window.geometry("500x500")
-
-
 def open_file():
     filepath = askopenfilename(defaultextension=".txt",
                                filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
@@ -33,10 +29,8 @@ def exit_application():
     if messagebox.askokcancel("Quit", "Do you want to quit?"):
         app_window.destroy()
 
-
 menu_bar = tk.Menu(app_window)
 app_window.config(menu=menu_bar)
-
 
 file_menu = tk.Menu(menu_bar, tearoff=False)
 file_menu.add_command(label="Open", command=open_file)
@@ -57,8 +51,6 @@ text_editor.pack(expand=True, fill="both")
 
 status_bar = ttk.Label(app_window, text="Ready", anchor=tk.W)
 status_bar.pack(side=tk.BOTTOM, fill=tk.X)
-
-
 text_scroll = ttk.Scrollbar(text_editor, orient=tk.VERTICAL, command=text_editor.yview)
 text_scroll.pack(side=tk.RIGHT, fill=tk.Y)
 text_editor.config(yscrollcommand=text_scroll.set)

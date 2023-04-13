@@ -3,6 +3,8 @@ from tkinter import ttk
 from tkinter import messagebox
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
+
+#APP WINDOW 
 app_window = tk.Tk()
 app_window.title("My Application")
 app_window.geometry("500x500")
@@ -32,6 +34,10 @@ def exit_application():
 menu_bar = tk.Menu(app_window)
 app_window.config(menu=menu_bar)
 
+
+
+
+#FILE MENU
 file_menu = tk.Menu(menu_bar, tearoff=False)
 file_menu.add_command(label="Open", command=open_file)
 file_menu.add_command(label="Save", command=save_file)
@@ -40,6 +46,8 @@ file_menu.add_command(label="Exit", command=exit_application)
 menu_bar.add_cascade(label="File", menu=file_menu)
 
 
+
+#EDIT MENU
 edit_menu = tk.Menu(menu_bar, tearoff=False)
 edit_menu.add_command(label="Cut", command=lambda: app_window.focus_get().event_generate("<<Cut>>"))
 edit_menu.add_command(label="Copy", command=lambda: app_window.focus_get().event_generate("<<Copy>>"))
@@ -48,6 +56,8 @@ menu_bar.add_cascade(label="Edit", menu=edit_menu)
 
 text_editor = tk.Text(app_window, wrap="word")
 text_editor.pack(expand=True, fill="both")
+
+
 
 status_bar = ttk.Label(app_window, text="Ready", anchor=tk.W)
 status_bar.pack(side=tk.BOTTOM, fill=tk.X)

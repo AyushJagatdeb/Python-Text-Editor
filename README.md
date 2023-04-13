@@ -1,1 +1,1 @@
-# Python Text Editor
+#Text Editor using Python
